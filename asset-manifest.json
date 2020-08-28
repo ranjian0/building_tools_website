@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/building_tools_website/static/css/main.5f361e03.chunk.css",
+    "main.js": "/building_tools_website/static/js/main.4a2a6296.chunk.js",
+    "main.js.map": "/building_tools_website/static/js/main.4a2a6296.chunk.js.map",
+    "runtime-main.js": "/building_tools_website/static/js/runtime-main.6f7efe6f.js",
+    "runtime-main.js.map": "/building_tools_website/static/js/runtime-main.6f7efe6f.js.map",
+    "static/js/2.6310d8a3.chunk.js": "/building_tools_website/static/js/2.6310d8a3.chunk.js",
+    "static/js/2.6310d8a3.chunk.js.map": "/building_tools_website/static/js/2.6310d8a3.chunk.js.map",
+    "index.html": "/building_tools_website/index.html",
+    "precache-manifest.902417f6b5d0491ba46f0ffbcf8f22db.js": "/building_tools_website/precache-manifest.902417f6b5d0491ba46f0ffbcf8f22db.js",
+    "service-worker.js": "/building_tools_website/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/building_tools_website/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.6310d8a3.chunk.js.LICENSE.txt": "/building_tools_website/static/js/2.6310d8a3.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/building_tools_website/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6f7efe6f.js",
+    "static/js/2.6310d8a3.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.4a2a6296.chunk.js"
+  ]
+}
