@@ -1,22 +1,40 @@
-import React from 'react';
-import { List, Typography } from 'antd'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { List, Typography, Button } from 'antd'
+import { DownloadOutlined } from '@ant-design/icons';
 
-const data = [
-  'Racing car sprays burning fuel into crowd.',
-  'Japanese princess to wed commoner.',
-  'Australian walks 100km after outback crash.',
-];
+const API_URL = " https://api.github.com/repos/ranjian0/building_tools/releases"
 
 const DownloadPage = () => {
-    return (
+  const [state, setState] = useState({
+    loading: false,
+    stable_releases: [],
+    unstable_releases: []
+  })
+
+  useEffect(() => {
+    setState({loading: true})
+    axios.get(API_URL).then((releases) => {
+      const allReleases = releases.data
+      let stable = allReleases.filter(release => !release.prerelease)
+      let unstable = allReleases.filter(release => release.prerelease)
+      setState({loading: false, stable_releases:stable, unstable_releases:unstable})
+    })
+  }, [setState])
+
+  return (
         <div>
             <List
               header={<Typography.Text strong>Stable Releases</Typography.Text>}
               bordered
-              dataSource={data}
+              dataSource={state.stable_releases}
               renderItem={item => (
                 <List.Item>
-                  <Typography.Text mark>[ITEM]</Typography.Text> {item}
+                  <Typography.Text >{item.name}</Typography.Text>
+                  <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={() => {}}>
+                            Download
+                  </Button>
+
                 </List.Item>
               )}
             />
@@ -24,12 +42,16 @@ const DownloadPage = () => {
             <br />
 
             <List
-              header={<Typography.Text strong>Alpha Releases</Typography.Text>}
+              header={<Typography.Text strong>Unstable Releases</Typography.Text>}
               bordered
-              dataSource={data}
+              dataSource={state.unstable_releases}
               renderItem={item => (
                 <List.Item>
-                  <Typography.Text mark>[ITEM]</Typography.Text> {item}
+                  <Typography.Text >{item.name}</Typography.Text>
+                  <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={() => {}}>
+                            Download
+                  </Button>
+
                 </List.Item>
               )}
             />
