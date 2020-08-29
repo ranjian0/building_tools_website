@@ -1,14 +1,11 @@
 import React from 'react';
-import {HashRouter} from "react-router-dom";
+import {HashRouter} from 'react-router-dom';
+import MainLayout from './layouts/MainLayout'
 
 function App() {
   return (
     <HashRouter basename="/">
-      <div >
-          <p>
-            Building Tools Website
-          </p>
-      </div>
+      <MainLayout />
     </HashRouter>
   );
 }
