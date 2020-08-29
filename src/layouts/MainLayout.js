@@ -1,6 +1,6 @@
 import React from 'react';
 import {  Layout, Menu, PageHeader  } from 'antd';
-import {  UnorderedListOutlined, UserOutlined, DownloadOutlined, HomeOutlined } from '@ant-design/icons';
+import {  UnorderedListOutlined, DownloadOutlined, HomeOutlined } from '@ant-design/icons';
 import CarouselLayout from '../components/Carousel';
 import DownloadButton from '../components/DownloadButton'
 import 'antd/dist/antd.css';
