@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {  Layout, Menu, PageHeader  } from 'antd';
 import {  UnorderedListOutlined, DownloadOutlined, HomeOutlined } from '@ant-design/icons';
 import {  Switch, Route, useHistory } from "react-router-dom";
@@ -12,43 +12,43 @@ import './MainLayout.css';
 
 const { Header, Content, Footer, Sider } = Layout;
 
+const MenuKeys = {
+    home: "/",
+    downloads: "/downloads",
+    wiki: "/wiki"
+}
+
 
 const MainLayout = () => {
     const history = useHistory()
+    const menuRef = useRef(null)
 
     const onMenuClicked = (item, key, keyPath, e) => {
         history.push(item.key)
     }
 
+    const onHeaderBackButton = () => {
+        menuRef.current.selectedKeys=[]
+        history.push('/')
+        console.log("Back pressed", menuRef.current)
+    }
+
     return (
       <Layout style={{minHeight:"100vh"}}>
-        <Sider
-          breakpoint="lg"
-          collapsedWidth="0"
-          onBreakpoint={broken => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}>
+        <Sider breakpoint="lg" collapsedWidth="0">
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={onMenuClicked}>
-            <Menu.Item key="/" icon={<HomeOutlined />}>
-              Home
-            </Menu.Item>
-            <Menu.Item key="/downloads" icon={<DownloadOutlined />}>
-              Downloads
-            </Menu.Item>
-            <Menu.Item key="/wiki" icon={<UnorderedListOutlined />}>
-              Wiki
-            </Menu.Item>
+          <Menu ref={menuRef} theme="dark" mode="inline" defaultSelectedKeys={[MenuKeys.home]} onClick={onMenuClicked}>
+            <Menu.Item key={MenuKeys.home} icon={<HomeOutlined />}>Home</Menu.Item>
+            <Menu.Item key={MenuKeys.downloads} icon={<DownloadOutlined />}>Downloads</Menu.Item>
+            <Menu.Item key={MenuKeys.wiki} icon={<UnorderedListOutlined />}>Wiki </Menu.Item>
           </Menu>
         </Sider>
+
         <Layout>
           <Header className="site-layout-sub-header-background" style={{ padding: 0}} >
             <PageHeader
                 className="site-page-header"
-                onBack={() => {history.push('/')}}
+                onBack={onHeaderBackButton}
                 title="Building Tools"
                 subTitle="Fast building exteriors in Blender"
               />
