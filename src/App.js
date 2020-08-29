@@ -1,12 +1,12 @@
 import React from 'react';
-import {HashRouter} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import MainLayout from './layouts/MainLayout'
 
 function App() {
   return (
-    <HashRouter basename="/">
+    <Router basename="/">
       <MainLayout />
-    </HashRouter>
+    </Router>
   );
 }
 
