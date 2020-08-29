@@ -27,7 +27,7 @@ const MainLayout = () => {
               Home
             </Menu.Item>
             <Menu.Item key="2" icon={<DownloadOutlined />}>
-              Dowloads
+              Downloads
             </Menu.Item>
             <Menu.Item key="3" icon={<UnorderedListOutlined />}>
               Wiki
