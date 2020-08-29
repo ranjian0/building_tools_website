@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
+import { Button, Space } from 'antd';
+import { DownloadOutlined, GithubOutlined } from '@ant-design/icons';
 
 
 const DownloadButton = () => {
@@ -8,10 +8,21 @@ const DownloadButton = () => {
         console.log("Donwload Clicked")
     }
 
+    function showgithub(e) {
+        console.log("Show on Github")
+    }
+
     return (
-        <Button type="primary" icon={<DownloadOutlined />} size='large' onClick={donwload}>
-                  Download Latest
-        </Button>
+        <Space>
+            <Button type="primary" icon={<DownloadOutlined />} size='large' onClick={donwload}>
+                      Download Latest
+            </Button>
+
+
+            <Button type="primary" icon={<GithubOutlined />} size='large' onClick={showgithub}>
+                      Show on Github
+            </Button>
+        </Space>
     )
 }
 
