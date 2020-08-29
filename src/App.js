@@ -4,7 +4,7 @@ import MainLayout from './layouts/MainLayout'
 
 function App() {
   return (
-    <Router basename="/">
+    <Router basename="/building_tools_website">
       <MainLayout />
     </Router>
   );
