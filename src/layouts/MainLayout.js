@@ -17,13 +17,7 @@ const MainLayout = () => {
     const history = useHistory()
 
     const onMenuClicked = (item, key, keyPath, e) => {
-        if (item.key === 'home') {
-            history.push('/')
-        } else if (item.key === 'donwloads') {
-            history.push('/downloads')
-        } else if (item.key === 'wiki') {
-            history.push('/wiki')
-        }
+        history.push(item.key)
     }
 
     return (
@@ -39,13 +33,13 @@ const MainLayout = () => {
           }}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={onMenuClicked}>
-            <Menu.Item key="home" icon={<HomeOutlined />}>
+            <Menu.Item key="/" icon={<HomeOutlined />}>
               Home
             </Menu.Item>
-            <Menu.Item key="donwloads" icon={<DownloadOutlined />}>
+            <Menu.Item key="/downloads" icon={<DownloadOutlined />}>
               Downloads
             </Menu.Item>
-            <Menu.Item key="wiki" icon={<UnorderedListOutlined />}>
+            <Menu.Item key="/wiki" icon={<UnorderedListOutlined />}>
               Wiki
             </Menu.Item>
           </Menu>
@@ -54,7 +48,7 @@ const MainLayout = () => {
           <Header className="site-layout-sub-header-background" style={{ padding: 0}} >
             <PageHeader
                 className="site-page-header"
-                onBack={() => null}
+                onBack={() => {history.push('/')}}
                 title="Building Tools"
                 subTitle="Fast building exteriors in Blender"
               />
