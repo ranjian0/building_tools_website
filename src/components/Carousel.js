@@ -1,10 +1,6 @@
 import React from 'react';
 import { Carousel } from 'antd';
 
-function onChange(a, b, c) {
-  console.log(a, b, c);
-}
-
 const contentStyle = {
   height: '50vh',
   color: '#fff',
@@ -15,7 +11,7 @@ const contentStyle = {
 
 const CarouselLayout = () => {
     return (
-      <Carousel autoplay afterChange={onChange}>
+      <Carousel autoplay>
         <div>
           <h3 style={contentStyle}>1</h3>
         </div>
