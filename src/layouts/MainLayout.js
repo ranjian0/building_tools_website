@@ -1,21 +1,27 @@
 import React, { useRef } from 'react';
 import {  Layout, Menu, PageHeader  } from 'antd';
-import {  UnorderedListOutlined, DownloadOutlined, HomeOutlined } from '@ant-design/icons';
+import {  UnorderedListOutlined, DownloadOutlined, HomeOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import {  Switch, Route, useHistory } from "react-router-dom";
 
 import HomePage from '../pages/HomePage';
 import WikiPage from '../pages/WikiPage';
+import AboutPage from '../pages/AboutPage';
 import DownloadPage from '../pages/DownloadPage';
 
 import 'antd/dist/antd.css';
 import './MainLayout.css';
 
+const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
 const MenuKeys = {
     home: "/",
+    about: "/about",
     downloads: "/downloads",
-    wiki: "/wiki"
+    wiki: "/wiki",
+    wiki_installation: "/wiki/installation",
+    wiki_modules: "/wiki/modules",
+    wiki_dev: "/wiki/dev"
 }
 
 
@@ -39,8 +45,13 @@ const MainLayout = () => {
           <div className="logo" />
           <Menu ref={menuRef} theme="dark" mode="inline" defaultSelectedKeys={[MenuKeys.home]} onClick={onMenuClicked}>
             <Menu.Item key={MenuKeys.home} icon={<HomeOutlined />}>Home</Menu.Item>
+            <Menu.Item key={MenuKeys.about} icon={<InfoCircleOutlined />}>About</Menu.Item>
             <Menu.Item key={MenuKeys.downloads} icon={<DownloadOutlined />}>Downloads</Menu.Item>
-            <Menu.Item key={MenuKeys.wiki} icon={<UnorderedListOutlined />}>Wiki </Menu.Item>
+            <SubMenu key={MenuKeys.wiki} icon={<UnorderedListOutlined />} title="Wiki">
+              <Menu.Item key={MenuKeys.wiki_installation}>Installation</Menu.Item>
+              <Menu.Item key={MenuKeys.wiki_modules}>Modules</Menu.Item>
+              <Menu.Item key={MenuKeys.wiki_dev}>Development</Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
 
@@ -58,6 +69,9 @@ const MainLayout = () => {
                 <Switch>
                   <Route exact path="/">
                     <HomePage />
+                  </Route>
+                  <Route exact path="/about">
+                    <AboutPage />
                   </Route>
                   <Route path="/downloads">
                     <DownloadPage />
