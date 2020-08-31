@@ -20,7 +20,7 @@ const DownloadButton = () => {
 
 
             <Button type="primary" icon={<GithubOutlined />} size='large' onClick={showgithub}>
-                      Show on Github
+                      View on Github
             </Button>
         </Space>
     )
