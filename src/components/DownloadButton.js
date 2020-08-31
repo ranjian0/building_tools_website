@@ -5,7 +5,6 @@ import { DownloadOutlined, GithubOutlined } from '@ant-design/icons';
 import { DownloadRelease, API_URL } from '../GithubAPI'
 
 
-
 const DownloadButton = () => {
     const [btnSize, setBtnSize] = useState('large')
     const [state, setState] = useState({
@@ -31,26 +30,27 @@ const DownloadButton = () => {
         window.open("https://github.com/ranjian0/building_tools", "_blank")
     }
 
-    useEffect(() => {
-        function onResize(e) {
-            // Small devices
-            if (window.innerWidth <= 576) {
-                setBtnSize('small')
-            // Medium devices
-            } else if (window.innerWidth >= 768 && window.innerWidth < 992) {
-                setBtnSize('medium')
-            // Large Devices
-            } else if (window.innerWidth >= 992) {
-                setBtnSize('large')
-            }
+    function onResize(e) {
+        // Small devices
+        if (window.innerWidth <= 576) {
+            setBtnSize('small')
+        // Medium devices
+        } else if (window.innerWidth >= 768 && window.innerWidth < 992) {
+            setBtnSize('medium')
+        // Large Devices
+        } else if (window.innerWidth >= 992) {
+            setBtnSize('large')
         }
+    }
 
+    useEffect(() => {
         window.addEventListener('resize', onResize)
         return () => {
             window.removeEventListener('resize', onResize)
         }
     })
 
+    onResize(null)
     let download_text = btnSize === 'small' ? 'Dowload' : 'Download Latest'
     let github_text = btnSize === 'small' ? 'Github' : 'View on Github'
     return (
