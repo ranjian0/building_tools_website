@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { List, Typography, Button } from 'antd'
+import { List, Typography, Button, Space } from 'antd'
 import { DownloadOutlined } from '@ant-design/icons';
 import { DownloadRelease, API_URL } from '../GithubAPI';
 
+
+function fileSize(size) {
+  var i = Math.floor( Math.log(size) / Math.log(1024) )
+  return ( size / Math.pow(1024, i) ).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
+}
 
 const DownloadPage = () => {
   const [state, setState] = useState({
@@ -31,10 +36,12 @@ const DownloadPage = () => {
               renderItem={item => (
                 <List.Item>
                   <Typography.Text >{item.name}</Typography.Text>
-                  <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={(e) => {DownloadRelease(item)}}>
-                            Download
-                  </Button>
-
+                  <Space>
+                    <Typography.Text type="success">{fileSize(item.assets[0].size)}</Typography.Text>
+                    <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={(e) => {DownloadRelease(item)}}>
+                              Download
+                    </Button>
+                  </Space>
                 </List.Item>
               )}
             />
@@ -48,10 +55,12 @@ const DownloadPage = () => {
               renderItem={item => (
                 <List.Item>
                   <Typography.Text >{item.name}</Typography.Text>
-                  <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={(e) => {DownloadRelease(item)}}>
-                            Download
-                  </Button>
-
+                  <Space>
+                    <Typography.Text type="success">{fileSize(item.assets[0].size)}</Typography.Text>
+                    <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={(e) => {DownloadRelease(item)}}>
+                              Download
+                    </Button>
+                  </Space>
                 </List.Item>
               )}
             />
