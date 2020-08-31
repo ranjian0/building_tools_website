@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { List, Typography, Button } from 'antd'
 import { DownloadOutlined } from '@ant-design/icons';
+import { DownloadRelease, API_URL } from '../GithubAPI';
 
-const API_URL = " https://api.github.com/repos/ranjian0/building_tools/releases"
 
 const DownloadPage = () => {
   const [state, setState] = useState({
@@ -31,7 +31,7 @@ const DownloadPage = () => {
               renderItem={item => (
                 <List.Item>
                   <Typography.Text >{item.name}</Typography.Text>
-                  <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={() => {}}>
+                  <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={(e) => {DownloadRelease(item)}}>
                             Download
                   </Button>
 
@@ -48,7 +48,7 @@ const DownloadPage = () => {
               renderItem={item => (
                 <List.Item>
                   <Typography.Text >{item.name}</Typography.Text>
-                  <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={() => {}}>
+                  <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={(e) => {DownloadRelease(item)}}>
                             Download
                   </Button>
 
