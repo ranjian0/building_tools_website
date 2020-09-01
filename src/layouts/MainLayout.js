@@ -22,7 +22,15 @@ const MenuKeys = {
     wiki_installation: "/wiki/installation",
     wiki_modules: "/wiki/modules",
     wiki_dev: "/wiki/dev",
-    wiki_mod_: "/wiki/mod"
+    wiki_mod_floorplan: "/wiki/mod/floorplan",
+    wiki_mod_floors: "/wiki/mod/floors",
+    wiki_mod_roof: "/wiki/mod/roof",
+    wiki_mod_window: "/wiki/mod/window",
+    wiki_mod_door: "/wiki/mod/door",
+    wiki_mod_multigroup: "/wiki/mod/multigroup",
+    wiki_mod_balcony: "/wiki/mod/balcony",
+    wiki_mod_stairs: "/wiki/mod/stairs",
+    wiki_mod_materials: "/wiki/mod/materials",
 }
 
 
@@ -80,18 +88,18 @@ const MainLayout = () => {
 
               {/* Modules */}
               <SubMenu key={MenuKeys.wiki_modules} title="Modules">
-                <Menu.Item key={MenuKeys.wiki_mod_}>Floorplan</Menu.Item>
-                <Menu.Item key={MenuKeys.wiki_mod_}>Floors</Menu.Item>
-                <Menu.Item key={MenuKeys.wiki_mod_}>Roof</Menu.Item>
+                <Menu.Item key={MenuKeys.wiki_mod_floorplan}>Floorplan</Menu.Item>
+                <Menu.Item key={MenuKeys.wiki_mod_floors}>Floors</Menu.Item>
+                <Menu.Item key={MenuKeys.wiki_mod_roof}>Roof</Menu.Item>
 
-                <Menu.Item key={MenuKeys.wiki_mod_}>Window</Menu.Item>
-                <Menu.Item key={MenuKeys.wiki_mod_}>Door</Menu.Item>
-                <Menu.Item key={MenuKeys.wiki_mod_}>Multigroup</Menu.Item>
+                <Menu.Item key={MenuKeys.wiki_mod_window}>Window</Menu.Item>
+                <Menu.Item key={MenuKeys.wiki_mod_door}>Door</Menu.Item>
+                <Menu.Item key={MenuKeys.wiki_mod_multigroup}>Multigroup</Menu.Item>
 
-                <Menu.Item key={MenuKeys.wiki_mod_}>Balcony</Menu.Item>
-                <Menu.Item key={MenuKeys.wiki_mod_}>Stairs</Menu.Item>
+                <Menu.Item key={MenuKeys.wiki_mod_balcony}>Balcony</Menu.Item>
+                <Menu.Item key={MenuKeys.wiki_mod_stairs}>Stairs</Menu.Item>
 
-                <Menu.Item key={MenuKeys.wiki_mod_}>Materials</Menu.Item>
+                <Menu.Item key={MenuKeys.wiki_mod_materials}>Materials</Menu.Item>
               </SubMenu>
 
               {/* Development */}
