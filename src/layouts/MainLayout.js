@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import {  Layout, Menu, PageHeader  } from 'antd';
-import {  UnorderedListOutlined, DownloadOutlined, HomeOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import {  Switch, Route, useHistory } from "react-router-dom";
+import {  UnorderedListOutlined, DownloadOutlined, HomeOutlined, InfoCircleOutlined } from '@ant-design/icons';
 
 import HomePage from '../pages/HomePage';
 import WikiPage from '../pages/WikiPage';
