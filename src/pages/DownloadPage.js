@@ -76,8 +76,8 @@ const DownloadPage = () => {
                   <Typography.Text >{item.name}</Typography.Text>
                   <Space>
                     <Typography.Text type="success">{fileSize(item.assets[0].size)}</Typography.Text>
-                    <Button type="primary" icon={<DownloadOutlined />} size={size} shape='round' onClick={(e) => {DownloadRelease(item)}}>
-                              {text}
+                    <Button type="primary" icon={<DownloadOutlined />} size={btnSize} shape='round' onClick={(e) => {DownloadRelease(item)}}>
+                              {btnText}
                     </Button>
                   </Space>
                 </List.Item>
@@ -95,8 +95,8 @@ const DownloadPage = () => {
                   <Typography.Text >{item.name}</Typography.Text>
                   <Space>
                     <Typography.Text type="success">{fileSize(item.assets[0].size)}</Typography.Text>
-                    <Button type="primary" icon={<DownloadOutlined />} size={size} shape='round' onClick={(e) => {DownloadRelease(item)}}>
-                              {text}
+                    <Button type="primary" icon={<DownloadOutlined />} size={btnSize} shape='round' onClick={(e) => {DownloadRelease(item)}}>
+                              {btnText}
                     </Button>
                   </Space>
                 </List.Item>
