@@ -6,7 +6,16 @@ import { DownloadRelease, API_URL } from '../GithubAPI'
 
 
 const DownloadButton = () => {
-    const [btnSize, setBtnSize] = useState('large')
+    let size = 'small'
+    // Medium devices
+    if (window.innerWidth >= 768 && window.innerWidth < 992) {
+        size = 'medium'
+    // Large Devices
+    } else if (window.innerWidth >= 992) {
+        size = 'large'
+    }
+
+    const [btnSize, setBtnSize] = useState(size)
     const [state, setState] = useState({
         loading: false,
         latest_release: null,
@@ -18,11 +27,10 @@ const DownloadButton = () => {
       const allReleases = releases.data
       setState({loading: false, latest_release:allReleases[0]})
     })
-    }, [setState])
+    }, [])
 
 
     function download_latest(e) {
-        console.log(state.latest_release)
         DownloadRelease(state.latest_release)
     }
 
@@ -50,8 +58,7 @@ const DownloadButton = () => {
         }
     })
 
-    onResize(null)
-    let download_text = btnSize === 'small' ? 'Dowload' : 'Download Latest'
+    let download_text = btnSize === 'small' ? 'Download' : 'Download Latest'
     let github_text = btnSize === 'small' ? 'Github' : 'View on Github'
     return (
         <Space>

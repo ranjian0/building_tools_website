@@ -36,7 +36,6 @@ const MainLayout = () => {
     const onHeaderBackButton = () => {
         menuRef.current.selectedKeys=[]
         history.push('/')
-        console.log("Back pressed", menuRef.current)
     }
 
     return (
