@@ -27,6 +27,44 @@ const DownloadPage = () => {
     })
   }, [setState])
 
+  let text = ''
+  let size = 'small'
+  // Medium devices
+  if (window.innerWidth >= 768 && window.innerWidth < 992) {
+      size = 'medium'
+      text = 'Download'
+  // Large Devices
+  } else if (window.innerWidth >= 992) {
+      size = 'large'
+      text = 'Download'
+  }
+  const [btnSize, setBtnSize] = useState(size)
+  const [btnText, setBtnText] = useState(text)
+
+  function onResize(e) {
+      // Small devices
+      if (window.innerWidth <= 576) {
+          setBtnSize('small')
+          setBtnText('')
+      // Medium devices
+      } else if (window.innerWidth >= 768 && window.innerWidth < 992) {
+          setBtnSize('medium')
+          setBtnText('Download')
+      // Large Devices
+      } else if (window.innerWidth >= 992) {
+          setBtnSize('large')
+          setBtnText('Download')
+      }
+  }
+
+  useEffect(() => {
+      window.addEventListener('resize', onResize)
+      return () => {
+          window.removeEventListener('resize', onResize)
+      }
+  })
+
+
   return (
         <div>
             <List
@@ -38,8 +76,8 @@ const DownloadPage = () => {
                   <Typography.Text >{item.name}</Typography.Text>
                   <Space>
                     <Typography.Text type="success">{fileSize(item.assets[0].size)}</Typography.Text>
-                    <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={(e) => {DownloadRelease(item)}}>
-                              Download
+                    <Button type="primary" icon={<DownloadOutlined />} size={size} shape='round' onClick={(e) => {DownloadRelease(item)}}>
+                              {text}
                     </Button>
                   </Space>
                 </List.Item>
@@ -57,8 +95,8 @@ const DownloadPage = () => {
                   <Typography.Text >{item.name}</Typography.Text>
                   <Space>
                     <Typography.Text type="success">{fileSize(item.assets[0].size)}</Typography.Text>
-                    <Button type="primary" icon={<DownloadOutlined />} size='default' shape='round' onClick={(e) => {DownloadRelease(item)}}>
-                              Download
+                    <Button type="primary" icon={<DownloadOutlined />} size={size} shape='round' onClick={(e) => {DownloadRelease(item)}}>
+                              {text}
                     </Button>
                   </Space>
                 </List.Item>
