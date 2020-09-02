@@ -78,7 +78,8 @@ const MainLayout = () => {
       <Layout style={{minHeight:"100vh"}}>
         <Sider breakpoint="lg" collapsedWidth="0">
           <div className="logo" />
-          <Menu ref={menuRef} theme="dark" mode="inline" selectedKeys={[menuSelection,]} defaultSelectedKeys={[MenuKeys.home]} onClick={onMenuClicked}>
+          <Menu ref={menuRef} theme="dark" mode="inline" selectedKeys={[menuSelection,]}
+                defaultSelectedKeys={[MenuKeys.home]} onClick={onMenuClicked}>
             <Menu.Item key={MenuKeys.home} icon={<HomeOutlined />}>Home</Menu.Item>
             <Menu.Item key={MenuKeys.about} icon={<InfoCircleOutlined />}>About</Menu.Item>
             <Menu.Item key={MenuKeys.downloads} icon={<DownloadOutlined />}>Downloads</Menu.Item>
