@@ -5,22 +5,16 @@ const { Meta } = Card;
 
 const data = [
   {
-    title: 'Title 1',
+    title: 'Installation',
+    description: "Installation instructions"
   },
   {
-    title: 'Title 2',
+    title: 'Modules',
+    description: "In depth tutorials for all the addon tools"
   },
   {
-    title: 'Title 3',
-  },
-  {
-    title: 'Title 4',
-  },
-  {
-    title: 'Title 5',
-  },
-  {
-    title: 'Title 6',
+    title: 'Development',
+    description: "Up and running for contributors"
   },
 ];
 
@@ -41,17 +35,17 @@ const WikiPage = () => {
         renderItem={item => (
           <List.Item>
             <Card
-                style={{ width: "300" }}
+                // style={{ width: "150" }}
                 cover={
                   <img
                     alt="example"
-                    src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                    src="https://via.placeholder.com/150"
                   />
                 }>
 
                 <Meta
                   title={item.title}
-                  description="Short description for this"
+                  description={item.description}
                 />
               </Card>
             </List.Item>
