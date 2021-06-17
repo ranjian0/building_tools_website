@@ -1,11 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import {  Layout, Menu, PageHeader  } from 'antd';
 import {  Switch, Route, useHistory } from "react-router-dom";
-import {  UnorderedListOutlined, DownloadOutlined, HomeOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import {  UnorderedListOutlined, DownloadOutlined, HomeOutlined, InfoCircleOutlined, AppstoreOutlined } from '@ant-design/icons';
 
 import HomePage from '../pages/HomePage';
 import WikiPage from '../pages/WikiPage';
 import AboutPage from '../pages/AboutPage';
+import EditorPage from '../pages/EditorPage';
 import DownloadPage from '../pages/DownloadPage';
 
 import 'antd/dist/antd.css';
@@ -17,6 +18,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const MenuKeys = {
     home: "/",
     about: "/about",
+    editor: "/editor",
     downloads: "/downloads",
     wiki: "/wiki",
     wiki_installation: "/wiki/installation",
@@ -82,6 +84,7 @@ const MainLayout = () => {
                 defaultSelectedKeys={[MenuKeys.home]} onClick={onMenuClicked}>
             <Menu.Item key={MenuKeys.home} icon={<HomeOutlined />}>Home</Menu.Item>
             <Menu.Item key={MenuKeys.about} icon={<InfoCircleOutlined />}>About</Menu.Item>
+            <Menu.Item key={MenuKeys.editor} icon={<AppstoreOutlined />}>Editor</Menu.Item>
             <Menu.Item key={MenuKeys.downloads} icon={<DownloadOutlined />}>Downloads</Menu.Item>
             <SubMenu key={MenuKeys.wiki} icon={<UnorderedListOutlined />} title="Wiki">
               {/* Installation */}
@@ -126,6 +129,9 @@ const MainLayout = () => {
                   </Route>
                   <Route exact path="/about">
                     <AboutPage />
+                  </Route>
+                  <Route exact path="/editor">
+                    <EditorPage />
                   </Route>
                   <Route path="/downloads">
                     <DownloadPage />
