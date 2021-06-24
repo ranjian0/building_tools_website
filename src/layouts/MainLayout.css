@@ -4,6 +4,17 @@
   margin: 16px;
 }
 
+.logo p {
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: large;
+  color: #fff;
+  font-weight: 500;
+}
+
 .site-page-header {
   border: 1px solid rgb(235, 237, 240);
 }

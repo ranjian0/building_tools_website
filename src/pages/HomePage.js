@@ -7,7 +7,7 @@ const HomePage = () => {
     return (
         <div>
             <CarouselLayout />
-            <br />
+            {/* <hr /> */}
             <DownloadButton />
         </div>
     )
