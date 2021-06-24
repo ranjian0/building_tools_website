@@ -121,7 +121,7 @@ const MainLayout = () => {
                 subTitle={subtitle}
               />
           </Header>
-          <Content style={{ margin: '24px 16px 0' }}>
+          <Content>
             <div className="site-layout-background" style={{ padding: 24 }}>
                 <Switch>
                   <Route exact path="/">
@@ -142,7 +142,6 @@ const MainLayout = () => {
                 </Switch>
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center', "height": "15vh" }}>Building Tools ©2020</Footer>
         </Layout>
       </Layout>
   )
