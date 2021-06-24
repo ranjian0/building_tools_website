@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { List, Typography, Button, Space } from 'antd'
 import { DownloadOutlined } from '@ant-design/icons';
-import { DownloadRelease, API_URL } from '../GithubAPI';
+import { DownloadRelease, DownloadFile, API_URL, BRANCHES } from '../GithubAPI';
 
 
 function fileSize(size) {
@@ -13,6 +13,7 @@ function fileSize(size) {
 const DownloadPage = () => {
   const [state, setState] = useState({
     loading: false,
+    branches: [],
     stable_releases: [],
     unstable_releases: []
   })
@@ -23,7 +24,7 @@ const DownloadPage = () => {
       const allReleases = releases.data
       let stable = allReleases.filter(release => !release.prerelease)
       let unstable = allReleases.filter(release => release.prerelease)
-      setState({loading: false, stable_releases:stable, unstable_releases:unstable})
+      setState({loading: false, stable_releases:stable, unstable_releases:unstable, branches:BRANCHES})
     })
   }, [setState])
 
@@ -87,15 +88,14 @@ const DownloadPage = () => {
             <br />
 
             <List
-              header={<Typography.Text strong>Unstable Releases</Typography.Text>}
+              header={<Typography.Text strong>Branches</Typography.Text>}
               bordered
-              dataSource={state.unstable_releases}
+              dataSource={state.branches}
               renderItem={item => (
                 <List.Item>
                   <Typography.Text >{item.name}</Typography.Text>
                   <Space>
-                    <Typography.Text type="success">{fileSize(item.assets[0].size)}</Typography.Text>
-                    <Button type="primary" icon={<DownloadOutlined />} size={btnSize} shape='round' onClick={(e) => {DownloadRelease(item)}}>
+                    <Button type="primary" icon={<DownloadOutlined />} size={btnSize} shape='round' onClick={(e) => {DownloadFile(item.url)}}>
                               {btnText}
                     </Button>
                   </Space>
