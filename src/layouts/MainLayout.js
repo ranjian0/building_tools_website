@@ -6,7 +6,7 @@ import {  UnorderedListOutlined, DownloadOutlined, HomeOutlined, InfoCircleOutli
 import HomePage from '../pages/HomePage';
 import WikiPage from '../pages/WikiPage';
 import AboutPage from '../pages/AboutPage';
-import EditorPage from '../pages/EditorPage';
+import DemoPage from '../pages/DemoPage';
 import DownloadPage from '../pages/DownloadPage';
 
 import 'antd/dist/antd.css';
@@ -18,7 +18,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const MenuKeys = {
     home: "/",
     about: "/about",
-    editor: "/editor",
+    demo: "/demo",
     downloads: "/downloads",
     wiki: "/wiki",
     wiki_installation: "/wiki/installation",
@@ -84,7 +84,7 @@ const MainLayout = () => {
                 defaultSelectedKeys={[MenuKeys.home]} onClick={onMenuClicked}>
             <Menu.Item key={MenuKeys.home} icon={<HomeOutlined />}>Home</Menu.Item>
             <Menu.Item key={MenuKeys.about} icon={<InfoCircleOutlined />}>About</Menu.Item>
-            <Menu.Item key={MenuKeys.editor} icon={<AppstoreOutlined />}>Editor</Menu.Item>
+            <Menu.Item key={MenuKeys.demo} icon={<AppstoreOutlined />}>Demo</Menu.Item>
             <Menu.Item key={MenuKeys.downloads} icon={<DownloadOutlined />}>Downloads</Menu.Item>
             <SubMenu key={MenuKeys.wiki} icon={<UnorderedListOutlined />} title="Wiki">
               {/* Installation */}
@@ -130,8 +130,8 @@ const MainLayout = () => {
                   <Route exact path="/about">
                     <AboutPage />
                   </Route>
-                  <Route exact path="/editor">
-                    <EditorPage />
+                  <Route exact path="/demo">
+                    <DemoPage />
                   </Route>
                   <Route path="/downloads">
                     <DownloadPage />
